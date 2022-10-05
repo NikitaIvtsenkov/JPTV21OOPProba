@@ -12,7 +12,8 @@ import java.util.Arrays;
  * @author pupil
  */
 public class Book {
-    private Author[] authors;
+    
+    private Author[] authors = new Author[0];
     private String caption;
 
     public Book() {
@@ -26,6 +27,13 @@ public class Book {
         this.authors = authors;
     }
 
+    public void addAuthors(Author author){
+        int countAuthors = this.authors.length;
+        Author[] newAuthors = Arrays.copyOf(this.authors, countAuthors+1);
+        newAuthors[countAuthors] = author;
+        this.authors = newAuthors;
+    }
+    
     public String getCaption() {
         return caption;
     }
